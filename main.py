@@ -38,6 +38,10 @@ def main() -> int:
         return 2
 
     text = build_text()
+    if not 1 <= len(text) <= 280:
+        print(f"entry text is {len(text)} characters, must be 1-280",
+              file=sys.stderr)
+        return 1
     os.makedirs(out_dir, exist_ok=True)
     path = os.path.join(out_dir, "entry.txt")
     with open(path, "w", encoding="utf-8", newline="\n") as fh:
