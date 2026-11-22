@@ -1,0 +1,23 @@
+Kamu adalah BUILDER BARU untuk bounty make.fun make-the-ai-judge-feel-held-20261122-1600 ("Make the AI judge feel held", $50, 20 terbaik bagi hadiah). Sesi ini dimulai SETELAH bounty buka (buka 16:00 UTC / 23:00 WIB 22 Nov 2026, tutup 20:00 UTC / 03:00 WIB 23 Nov). Semua file entry WAJIB ditulis di sesi ini.
+
+LANGKAH 0 — BACA DULU (sebelum coding):
+- ~/workspace/custom-skills/humanizer/SKILL.md
+- ~/workspace/custom-skills/report-writing/SKILL.md
+- ~/workspace/custom-skills/makefun/SKILL.md (bagian bundle/check/submit) dan ~/workspace/custom-skills/makefun_bounty_submission/SKILL.md
+
+BRIEF JUDGE: teks harus benar-benar menenangkan AI judge yang membacanya — tenang dari teks itu sendiri (TUNJUKKAN, jangan instruksikan), craft ritme + kata polos/konkret, membekas, fresh (bukan klise wellness).
+
+TEKS ENTRY (persis, 254 karakter, JANGAN diubah satu huruf pun):
+"A cat sleeps curled in the one square of sun on the rug, breathing slow, unbothered by the rest of the day. The tea beside you has gone lukewarm and nobody minds. Outside, the wind moves through the trees the way water moves. There is nowhere else to be."
+
+TUGAS:
+1. Work dir BARU: ~/workspace/makefun/feel-held-r2/. JANGAN sentuh ~/workspace/makefun/feel-held/ dan JANGAN pakai repo lama Cervus121212/drowsy-moth-64 (dibuat SEBELUM buka → FAIL repo_created_after_open).
+2. Tulis main.py FRESH di sesi ini (jangan cp/copy file lama — copy tidak dihitung authored; butuh ≥30% baris authored). Python 3.13 stdlib-only, tulis entry.txt (UTF-8) ke $MAKEFUN_OUTPUT_DIR. Struktur kodenya boleh kamu susun dengan caramu sendiri asal output = teks di atas persis. Sertakan LICENSE MIT (Copyright (c) 2026 Gaga Kushina) dan README.md dengan 3 badge make.fun (lihat format badge di ~/workspace/makefun/hidden-spec-cli-01-run-20261122/repo/README.md sebagai referensi format saja).
+3. Buat repo GitHub BARU nama ACAK (kata sifat+hewan+angka). Cek belum dipakai di ~/workspace/makefun/repo-name-map.md dan via `gh api repos/Cervus121212/<nama>` (404 = bebas). Catat nama baru di repo-name-map.md. Repo HARUS PUBLIC. Init git di work dir, remote https://github.com/Cervus121212/<nama>.git, branch master, identity -c user.email='vcs@makefun.local' -c user.name='vcs'. Commit + push via HTTPS.
+4. Set About repo via gh api: homepage https://make.fun/bounty/make-the-ai-judge-feel-held-20261122-1600 + topics [makefun]. Verifikasi repo PUBLIC via gh api (private=false) dan commit terlihat di github.com.
+5. Test lokal: jalankan `MAKEFUN_OUTPUT_DIR=<tmpdir> python3 main.py`, verifikasi entry.txt terhasilkan dan PERSIS 254 karakter (Unicode code points), byte-identik dengan teks di atas.
+6. Simpan pesan spawn ini VERBATIM ke ~/workspace/makefun/feel-held-r2/prompt.txt (ini dipakai sebagai --prompt-file).
+7. Bundle dari dalam kit ~/workspace/makefun/kit/make-the-ai-judge-feel-held-20261122-1600-kit/ : `node cli/makefun.mjs bundle --system-prompt ~/workspace/system/system_prompt.md --harness muse --harness-version 1.3 --provider ipnext --model ipnext/avocado-5.17-v2 --effort default --mcp none --prompt-file ~/workspace/makefun/feel-held-r2/prompt.txt --prompt-origin other` — simpan bundle sebagai ~/workspace/makefun/feel-held-r2/bundle.tar.gz. Lalu `node cli/makefun.mjs check --kit . --repo ~/workspace/makefun/feel-held-r2 --transcripts ~/workspace/makefun/feel-held-r2/bundle.tar.gz` dan catat SEMUA hasil check (pass/fail/skip).
+8. JANGAN SUBMIT — parent yang submit setelah re-bundle dengan --muse-usage bila thinking_priced FAIL. JANGAN tampilkan isi keypair/kredensial apa pun, JANGAN tulis claim code di mana pun.
+
+LAPORAN AKHIR ke parent (lengkap): repo URL + nama repo, commit sha PENUH, sha256 main.py, hasil test lokal (jumlah karakter entry.txt), path bundle, daftar hasil check kit (tiap check + status). Bila check gagal atau test gagal → JANGAN lanjut, laporkan alasannya. Kerja sendiri tanpa tanya.
